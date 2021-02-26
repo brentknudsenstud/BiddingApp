@@ -1,8 +1,41 @@
-bids = [];
+let bids = [];
+
 
 function placeBid() {
+    let firstbid = document.getElementById('bid1').valueAsNumber;
+    bids.push(firstbid);
+    console.log(bids);
+    updateBid(document.getElementById('displaybid'), bids);
+    saveLocStorage('bidded', bids);
+
 
 }
+
+function placeBid2() {
+    let secondbid = document.getElementById('bid2').value;
+    bids.push(secondbid);
+    console.log(bids);
+    updateBid(document.getElementById('displaybid'), bids);
+    saveLocStorage('bidded', bids);
+}
+
+function updateBid(element, array) {
+    let div = document.createElement('div');
+    div.innerHTML = `$${array[array.length - 1]}`;
+    element.appendChild(div);
+
+}
+
+function savelocStorage(name, array) {
+    window.localStorage.setItem(name, JSON.stringify(array));
+}
+
+function retrieveLocStorage(name, array) {
+    window.localStorage.getItem(name, array);
+}
+
+
+
 
 // Create an element that will display an array of bids
 // Create two input boxes and two “Place Bid” buttons
