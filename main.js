@@ -7,16 +7,16 @@ function placeBid() {
     console.log(bids);
     updateBid(document.getElementById('displaybid'), bids);
     saveLocStorage('bidded', bids);
-
-
+    retrieveLocStorage('bidded', bids);
 }
 
 function placeBid2() {
-    let secondbid = document.getElementById('bid2').value;
+    let secondbid = document.getElementById('bid2').valueAsNumber;
     bids.push(secondbid);
     console.log(bids);
     updateBid(document.getElementById('displaybid'), bids);
     saveLocStorage('bidded', bids);
+    retrieveLocStorage('bidded', bids);
 }
 
 function updateBid(element, array) {
@@ -26,14 +26,16 @@ function updateBid(element, array) {
 
 }
 
-function savelocStorage(name, array) {
+
+function saveLocStorage(name, array) {
     window.localStorage.setItem(name, JSON.stringify(array));
 }
 
 function retrieveLocStorage(name, array) {
-    window.localStorage.getItem(name, array);
+   window.localStorage.getItem(name, array);
 }
 
+console.log(retrieveLocStorage);
 
 
 

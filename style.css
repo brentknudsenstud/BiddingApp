@@ -15,9 +15,10 @@ body, html {
     margin-bottom: 20px;
 }
 
-input #bid1 {
+.collection-item {
     background-color: lightgoldenrodyellow;
-    color: white;
+    padding: 5px;
+    color: darkgreen;
 }
 
 .card {
