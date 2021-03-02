@@ -7,7 +7,7 @@ function placeBid() {
     console.log(bids);
     updateBid(document.getElementById('displaybid'), bids);
     saveLocStorage('bidded', bids);
-    retrieveLocStorage('bidded', bids);
+    
 }
 
 function placeBid2() {
@@ -16,7 +16,6 @@ function placeBid2() {
     console.log(bids);
     updateBid(document.getElementById('displaybid'), bids);
     saveLocStorage('bidded', bids);
-    retrieveLocStorage('bidded', bids);
 }
 
 function updateBid(element, array) {
@@ -26,13 +25,23 @@ function updateBid(element, array) {
 
 }
 
+function highestBid() {
+    retrieveLocStorage('bidded', bids);
+    let highest = Math.max(...bids);
+    let printHighest = document.createElement('div');
+    div.innerHTML = `$${highest}`;
+    element.appendChild(printHighest);
+
+
+}
+
 
 function saveLocStorage(name, array) {
     window.localStorage.setItem(name, JSON.stringify(array));
 }
 
 function retrieveLocStorage(name, array) {
-    window.localStorage.getItem(name, JSON.parse(array));
+    bids = JSON.parse(window.localStorage.getItem(name));
 }
 
 console.log(retrieveLocStorage);
