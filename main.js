@@ -32,7 +32,7 @@ function saveLocStorage(name, array) {
 }
 
 function retrieveLocStorage(name, array) {
-   window.localStorage.getItem(name, array);
+    window.localStorage.getItem(name, JSON.parse(array));
 }
 
 console.log(retrieveLocStorage);
